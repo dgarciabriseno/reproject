@@ -10,12 +10,12 @@ The observer's position is determined via JPL Horizons ephemeris data, as proces
 
 Basic Usage
 ```
-docker run -d --rm dgarciabriseno/reproject
+docker run -p 8000:8000 -d --rm dgarciabriseno/reproject
 ```
 
 You can specify the Helioviewer API url via an environment variable `API_BASE`:
 ```
-docker run -e API_BASE="https://api.beta.helioviewer.org" -d --rm dgarciabriseno/reproject
+docker run -p 8000:8000 -e API_BASE="https://api.beta.helioviewer.org" -d --rm dgarciabriseno/reproject
 ```
 
 The container runs an http service with only one endpoint:
