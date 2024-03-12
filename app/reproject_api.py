@@ -43,7 +43,8 @@ def reproject_map(src: GenericMap, observer: str) -> GenericMap:
 @app.route("/<int:id>/<string:observer>")
 def reproject(id, observer):
     # In Helioviewer, this could perform a database lookup to get the file from disk.
-    image = requests.get(f"https://api.helioviewer.org/?action=getJP2Image&id={id}")
+    api = os.environ["API_BASE"]
+    image = requests.get(f"{api}/?action=getJP2Image&id={id}")
     fp = tempfile.NamedTemporaryFile("wb")
     fp.write(image.content)
 
